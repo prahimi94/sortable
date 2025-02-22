@@ -3,26 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Sortable</title>
 </head>
 <body>
+    <div>
+        <label for="pageSize">Page Size:</label>
+        <select id="pageSize" onchange="changePageSize(this.value)">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="9999">All</option>
+        </select>
+    </div>
+    <div id="pagination"></div>
+    
+  <input type="text" id="searchAll" placeholder="Search all" />
+  <!-- <select id="searchField">
+    <option value="name">Name</option>
+    <option value="biography.fullName">Full Name</option>
+    <option value="appearance.gender">Gender</option>
+    <option value="appearance.race">Race</option>
+    <option value="biography.placeOfBirth">Place of Birth</option>
+    <-- We can add more fields! -->
+  <!-- </select> --> 
+  <h3 id="nothingFound" style="display: none;">Nothing found</h3>
   <table>
     <thead>
       <th>Icon</th>
-      <th>Name</th>
-      <th>Full Name</th>
-      <th>Powerstats</th>
-      <th>Race</th>
-      <th>Gender</th>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Place Of Birth</th>
-      <th>Alignment</th>
+      <th class="sortable" id="nameHead">Name
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="fullNameHead">Full Name
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="powerstatsHead">Powerstats
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="raceHead">Race
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="genderHead">Gender
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="heightHead">Height
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="weightHead">Weight
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="placeOfBirthHead">Place Of Birth
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
+      <th class="sortable" id="alignmentHead">Alignment
+        <span class="asc-sorted"></span>
+        <span class="desc-sorted"></span>
+      </th>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tfoot>
+          <tr>
+            <th></th>
+            <th><input type="text" class="column-search" data-field="name" placeholder = "Name" ></th>
+            <th><input type="text" class="column-search" data-field="biography.fullName" placeholder = "Full Name "></th>
+            <th><input type="text" class="column-search" data-field="powerstats" placeholder = "Powerstats"></th>
+            <th><input type="text" class="column-search" data-field="appearance.race"placeholder= "Race"></th>
+            <th><input type="text" class="column-search" data-field="appearance.gender" placeholder = "Gender"></th>
+            <th><input type="text" class="column-search" data-field="appearance.height" placeholder = "Height"></th>
+            <th><input type="text" class="column-search" data-field="appearance.weight" placeholder = "Weight"></th>
+            <th><input type="text" class="column-search" data-field="biography.placeOfBirth" placeholder = "Place Of Birth"></th>
+            <th><input type="text" class="column-search" data-field="biography.alignment" placeholder = "Alignment"></th>
+          </tr>
+      </tfoot>
+    </tbody>
   </table>
 </body>
-
 <!-- <script src="getData.js"></script> -->
 <script type="module" src="main.js"></script>
 </html>

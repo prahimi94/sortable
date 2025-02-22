@@ -1,0 +1,52 @@
+.sortable {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.sortable:hover {
+    cursor: pointer;
+    border: 1.5px solid #000;
+    color: #000;
+    background-color: rgb(211, 229, 246);
+}
+.asc-sorted::after {
+    content: " ▲"; /* Unicode up arrow */
+    font-size: 0.8em; /* Adjust size */
+    margin-left: 5px;
+    color: grey; /* Default inactive */
+}
+/* Active state (when sorting is applied) */
+.asc-sorted.active::after {
+    color: black; /* Highlight active */
+}
+
+.desc-sorted::after {
+    content: " ▼"; /* Unicode down arrow */
+    font-size: 0.8em; /* Adjust size */
+    margin-left: 5px;
+    color: grey; /* Default inactive */
+}
+/* Active state (when sorting is applied) */
+.desc-sorted.active::after {
+    color: black; /* Highlight active */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+th {
+    cursor: pointer;
+}
+img {
+    width: 50px;
+    height: auto;
+}
