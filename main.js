@@ -35,9 +35,10 @@ export async function fillTable() {
     console.log("Displaying data:", paginatedData);
 
     let tableRows = '';
-    
+    let index = (currentPage - 1) * pageSize
     for (const hero of paginatedData) {
       tableRows += `<tr>
+        <td>${index + 1}</td> 
         <td><img src="${hero.images.xs}"></td>
         <td>${hero.name || "-"}</td>
         <td>${hero.biography.fullName || "-"}</td>
@@ -61,6 +62,7 @@ export async function fillTable() {
         <td>${hero.biography.placeOfBirth || "-"}</td>
         <td>${hero.biography.alignment || "-"}</td>
       </tr>`;
+      index++
     }
 
     const myTableBody = document.querySelector("table tbody");

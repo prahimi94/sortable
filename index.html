@@ -7,6 +7,7 @@
   <title>Sortable</title>
 </head>
 <body>
+  <div class="controls">
     <div>
         <label for="pageSize">Page Size:</label>
         <select id="pageSize" onchange="changePageSize(this.value)">
@@ -17,20 +18,14 @@
             <option value="9999">All</option>
         </select>
     </div>
-    <div id="pagination"></div>
-    
-  <input type="text" id="searchAll" placeholder="Search all" />
-  <!-- <select id="searchField">
-    <option value="name">Name</option>
-    <option value="biography.fullName">Full Name</option>
-    <option value="appearance.gender">Gender</option>
-    <option value="appearance.race">Race</option>
-    <option value="biography.placeOfBirth">Place of Birth</option>
-    <-- We can add more fields! -->
-  <!-- </select> --> 
+    <div class="search-container">
+        <input type="text" id="searchAll" placeholder="Search all" />
+    </div>
+</div>
   <h3 id="nothingFound" style="display: none;">Nothing found</h3>
   <table>
     <thead>
+      <th>#</th>
       <th>Icon</th>
       <th class="sortable" id="nameHead">Name
         <span class="asc-sorted"></span>
@@ -73,6 +68,7 @@
       <tfoot>
           <tr>
             <th></th>
+            <th></th>
             <th><input type="text" class="column-search" data-field="name" placeholder = "Name" ></th>
             <th><input type="text" class="column-search" data-field="biography.fullName" placeholder = "Full Name "></th>
             <th><input type="text" class="column-search" data-field="powerstats" placeholder = "Powerstats"></th>
@@ -86,6 +82,7 @@
       </tfoot>
     </tbody>
   </table>
+  <div id="pagination"></div>
 </body>
 <!-- <script src="getData.js"></script> -->
 <script type="module" src="main.js"></script>
